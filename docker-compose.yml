@@ -1,0 +1,62 @@
+version: '3.7'
+
+services:
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: django.Dockerfile
+    command: bash -c "python manage.py makemigrations  &&  python manage.py migrate && python manage.py collectstatic --noinput &&  gunicorn -k eventlet BBC_crash.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - ./static:/shop_orgo/static
+      - ./logs:/shop_orgo/logs
+    expose:
+      - 8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=SJDuehsiosaeiorp231290akl
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=shop_orgo_dev
+      - SQL_USER=shop_orgo
+      - SQL_PASSWORD=PWghdRet
+      - SQL_HOST=db
+      - SQL_PORT=5432
+    depends_on:
+      - db
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - postgres_data_bev:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=shop_orgo
+      - POSTGRES_PASSWORD=PWghdRet
+      - POSTGRES_DB=shop_orgo_dev
+  nginx:
+    restart: always
+    build: ./nginx
+    volumes:
+      - ./static:/shop_orgo/static
+      - ./logs:/shop_orgo/logs
+      - ./nginx:/etc/nginx/conf.d
+      - ./certbot/certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - web
+      - socketio
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./certbot/certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 5d & wait $${!}; done;'"
+volumes:
+  postgres_data_bev:

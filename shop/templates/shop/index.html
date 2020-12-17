@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}The BBC - Выигрывай и зарабатывай | Многопользовательская онлайн игра{% endblock %}
+{% block content %}
+    <!-- Start Main Banner Area -->
+    <div class="main-banner">
+        <div class="main-banner-item">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="main-banner-content">
+                            <h1>Органическая Пища Полезна Для Здоровья</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                            <div class="banner-btn">
+                                <a href="shop-1.html" class="default-btn">Весь каталог</a>
+                                <a href="cart.html" class="optional-btn">Узнать подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Banner Area -->
+
+    <!-- Start Why Choose Area -->
+    <section class="why-choose-area pt-100">
+        <div class="container">
+            <div class="why-choose-item">
+                <div class="content">
+                    <span>Наши преимущества</span>
+                    <h3>Почему именно мы?</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+
+                <div class="inner-content">
+                    <div class="icon">
+                        <i class="flaticon-leaf"></i>
+                    </div>
+                    <h4>Натурально</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+
+                <div class="inner-content">
+                    <div class="icon">
+                        <i class="flaticon-heart"></i>
+                    </div>
+                    <h4>Полезно</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+
+                <div class="inner-content">
+                    <div class="icon">
+                        <i class="flaticon-plant"></i>
+                    </div>
+                    <h4>Качественно</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+            </div>
+        </div>
+        <div class="detox-water-shape">
+            <div class="shape1">
+                <img src="{% static 'img/detox-water/detox-water-1.png' %}" alt="image">
+            </div>
+
+            <div class="shape2">
+                <img src="{% static 'img/detox-water/detox-water-2.png' %}" alt="image">
+            </div>
+
+            <div class="shape3">
+                <img src="{% static 'img/detox-water/detox-water-3.png' %}" alt="image">
+            </div>
+
+            <div class="shape4">
+                <img src="{% static 'img/detox-water/detox-water-4.png' %}" alt="image">
+            </div>
+        </div>
+    </section>
+    <!-- End Why Choose Area -->
+
+    <!-- Start Top Products Area -->
+    <section class="top-products-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <h2>Что мы предлагаем?</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua quis ipsum suspendisse</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="top-products-item">
+                        <div class="products-image">
+                            <a href="{% url 'details' %}"><img src="{% static 'img/top-products/top-products-1.jpg' %}"
+                                                               alt="image"></a>
+
+
+                            <div class="sale">
+                                <span>Акция</span>
+                            </div>
+                        </div>
+
+                        <div class="products-content">
+                            <h3>
+                                <a href="{% url 'details' %}">Darling Oranges</a>
+                            </h3>
+                            <div class="price">
+                                <span class="new-price">$38.00</span>
+                                <span class="old-price">$125.00</span>
+                            </div>
+                            <ul class="rating">
+                                <li>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bx-star'></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- End Top Products Area -->
+
+    <!-- Start Testimonial Area -->
+    <section class="testimonial-area ptb-100">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы клиентов</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua quis ipsum suspendisse</p>
+            </div>
+
+            <div class="testimonial-slider owl-carousel owl-theme">
+                <div class="testimonial-item">
+                    <div class="info">
+                        <img src="{% static 'img/client/client-1.jpg' %}" alt="image">
+                        <h3>Ken Morris</h3>
+                        <span>Organic Farmer</span>
+                    </div>
+                    <p>С другой стороны реализация намеченных плановых заданий позволяет выполнять важные задания по
+                        разработке систем массового участия. Не следует, однако забывать, что постоянный количественный
+                        рост и сфера нашей активности способствует подготовки и реализации форм развития. Повседневная
+                        практика показывает, что постоянное информационно-пропагандистское обеспечение нашей
+                        деятельности позволяет оценить значение модели развития. Значимость этих проблем настолько
+                        очевидна, что начало повседневной работы.</p>
+
+                    <div class="icon">
+                        <i class="flaticon-right-quotes-symbol"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="info">
+                        <img src="{% static 'img/client/client-2.jpg' %}" alt="image">
+                        <h3>Johansen Lisa</h3>
+                        <span>Organic Farmer</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa
+                        qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+
+                    <div class="icon">
+                        <i class="flaticon-right-quotes-symbol"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-item">
+                    <div class="info">
+                        <img src="{% static 'img/client/client-3.jpg' %}" alt="image">
+                        <h3>Lodi Kheda</h3>
+                        <span>Organic Farmer</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa
+                        qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+
+                    <div class="icon">
+                        <i class="flaticon-right-quotes-symbol"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonial Area -->
+
+
+
+
+{% endblock %}
