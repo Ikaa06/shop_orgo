@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}The BBC - Выигрывай и зарабатывай | Многопользовательская онлайн игра{% endblock %}
+{% block title %}{% endblock %}
 {% block content %}
     <!-- Start Main Banner Area -->
     <div class="main-banner">
@@ -12,10 +12,7 @@
                             <h1>Органическая Пища Полезна Для Здоровья</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-                            <div class="banner-btn">
-                                <a href="shop-1.html" class="default-btn">Весь каталог</a>
-                                <a href="cart.html" class="optional-btn">Узнать подробнее</a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -25,7 +22,7 @@
     <!-- End Main Banner Area -->
 
     <!-- Start Why Choose Area -->
-    <section class="why-choose-area pt-100">
+    <section class="why-choose-area ptb-100">
         <div class="container">
             <div class="why-choose-item">
                 <div class="content">
@@ -69,7 +66,7 @@
             </div>
 
             <div class="shape2">
-                <img src="{% static 'img/detox-water/detox-water-2.png' %}" alt="image">
+                <img src="{% static 'img/detox-water/detox-water-2.png'  %}" alt="image">
             </div>
 
             <div class="shape3">
@@ -85,48 +82,32 @@
 
     <!-- Start Top Products Area -->
     <section class="top-products-area pt-100 pb-70">
-        <div class="container">
+        <div class="container" id="cat-prod">
             <div class="section-title">
                 <h2>Что мы предлагаем?</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua quis ipsum suspendisse</p>
             </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
+            <div class="products-slider-main owl-carousel owl-theme">
+                {% for product in products %}
                     <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="{% url 'details' %}"><img src="{% static 'img/top-products/top-products-1.jpg' %}"
-                                                               alt="image"></a>
+                    <div class="products-image">
+                        <a href="{{ product.get_absolute_url }}"><img src="{% static 'img/top-products/top-products-1.jpg' %}"
+                                alt="image"></a>
+                    </div>
 
-
-                            <div class="sale">
-                                <span>Акция</span>
-                            </div>
+                    <div class="products-content">
+                        <h3>
+                            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                        </h3>
+                        <div class="price">
+                            <span class="new-price">{{ product.price }}</span>
+{#                            <span class="old-price">$125.00</span>#}
                         </div>
 
-                        <div class="products-content">
-                            <h3>
-                                <a href="{% url 'details' %}">Darling Oranges</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$38.00</span>
-                                <span class="old-price">$125.00</span>
-                            </div>
-                            <ul class="rating">
-                                <li>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bx-star'></i>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
-
-
+                {% endfor %}
             </div>
         </div>
     </section>
