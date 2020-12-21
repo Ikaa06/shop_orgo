@@ -164,17 +164,23 @@
                         <section class="widget widget_popular_products">
                             <h3 class="widget-title">Продукты в **</h3>
                             {% for photo in product.images.all %}
-
-                                <article class="item">
+                                <article class="item more_info_item" data-name="{{ photo.name }}">
                                 <p class="thumb">
-                                    <span class="fullimage cover bg1" role="img"></span>
+                                <img src="{{ photo.image.url }}" alt="{{ photo.name }}"> 
                                 </p>
                                 <div class="info">
 
                                     <h4 class="title usmall">{{ photo.name }}</h4>
 
+                                </div> 
+                                </article>
+                                <div class="item_descr_wrapper d-none" data-name="{{ photo.name }}">
+                                    <div class="item_descr">
+                                        <span class="close_item_descr fa fa-close"></span>
+                                        <h4>{{ photo.name }}</h4>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora, neque cum nemo vel quam rerum iste obcaecati rem non alias assumenda ullam laudantium perferendis beatae reiciendis nisi perspiciatis cumque aliquid!</p>
+                                    </div>
                                 </div>
-                            </article>
                                 {% endfor %}
 
                         </section>

@@ -115,7 +115,6 @@ jQuery(function ($) {
         items: 1,
         smartSpeed: 500,
         margin: 30,
-        autoplayHoverPause: true,
         autoplay: true,
     });
     $('.produt-photo-slider').owlCarousel({
@@ -125,7 +124,6 @@ jQuery(function ($) {
         items: 1,
         smartSpeed: 500,
         margin: 0,
-        autoplayHoverPause: true,
         autoplay: true,
     });
 
@@ -334,7 +332,9 @@ jQuery(function ($) {
         });
         // Click Event
         $('.go-top').on('click', function () {
-            $("html, body").animate({scrollTop: "0"}, 500);
+            $("html, body").animate({
+                scrollTop: "0"
+            }, 500);
         });
     });
 
@@ -390,11 +390,11 @@ jQuery(function ($) {
     $(window).on('load', function () {
         if ($(".wow").length) {
             var wow = new WOW({
-                boxClass: 'wow',      // animated element css class (default is wow)
+                boxClass: 'wow', // animated element css class (default is wow)
                 animateClass: 'animated', // animation css class (default is animated)
-                offset: 20,          // distance to the element when triggering the animation (default is 0)
+                offset: 20, // distance to the element when triggering the animation (default is 0)
                 mobile: true, // trigger animations on mobile devices (default is true)
-                live: true,       // act on asynchronously loaded content (default is true)
+                live: true, // act on asynchronously loaded content (default is true)
             });
             wow.init();
         }
@@ -405,9 +405,24 @@ if (document.querySelector(".open-product_modal")) {
     document.querySelector(".open-product_modal").onclick = () => {
         document.querySelector(".buy_product_modal").classList.remove("d-none")
     }
-}
-if (document.querySelector(".product_modal > .close")) {
     document.querySelector(".product_modal > .close").onclick = () => {
-    document.querySelector(".buy_product_modal").classList.add("d-none")
+        document.querySelector(".buy_product_modal").classList.add("d-none")
+    }
+
+    // Модалка краткой инфы продукта
+    for(let product of document.querySelectorAll(".more_info_item")){
+        product.onclick = ()=>{
+            document.querySelector(`.item_descr_wrapper[data-name=${product.getAttribute("data-name")}]`).classList.remove("d-none")
+        }
+    }
+    for(let descr_close of document.querySelectorAll(".close_item_descr")){
+        descr_close.onclick = ()=>{
+            let descr_item  = descr_close.parentElement
+            descr_item.parentElement.className = "item_descr_wrapper d-none"
+        }
+    }
 }
-}
+
+
+
+
