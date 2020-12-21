@@ -5972,14 +5972,16 @@ Product Details Area CSS
 .product-details-desc .buy-checkbox-btn {
   margin-top: 20px;
 }
-.buy_product_modal{
+.buy_product_modal, .item_descr_wrapper{
   z-index: 9999;
   position: fixed;
   width: 100%;
   height: 100vh;
+  left: 0;
+  top: 0;
   background: rgba(0,0,0,.5);
 }
-.product_modal{
+.product_modal, .item_descr_wrapper .item_descr{
   position: relative;
   margin: 150px auto;
   padding: 30px;
@@ -5987,11 +5989,12 @@ Product Details Area CSS
   background: #fff;
   width: 300px;
 }
-.product_modal .close{
+.product_modal .close, .item_descr_wrapper .item_descr .close_item_descr{
   position: absolute;
   right: 5px;
   top: 5px;
   font-size: 16px;
+  cursor: pointer;
 }
 .product_modal h4{
   text-align: center;
@@ -6019,7 +6022,9 @@ Product Details Area CSS
   cursor: pointer;
 }
 
-
+.more_info_item img, .more_info_item h4 {
+  cursor: pointer;
+}
 
 .product-details-desc .buy-checkbox-btn input {
   display: none;
